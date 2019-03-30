@@ -180,6 +180,9 @@ static int match_is_valid(const void *data, size_t size) {
                 if (*p >= '0' && *p <= '9')
                         continue;
 
+		if (*p == '!' && p != b + size - 1 && *(p + 1) == '=')
+			continue;
+
                 return false;
         }
 

@@ -28,6 +28,7 @@ struct Match {
         MatchType type;
         Match *parent;
         LIST_FIELDS(Match, matches);
+        LIST_FIELDS(Match, negations);
 
         /* For concrete matches */
         char *data;
@@ -36,6 +37,9 @@ struct Match {
 
         /* For terms */
         LIST_HEAD(Match, matches);
+
+        /* For AND terms */
+        LIST_HEAD(Match, negations);
 };
 
 struct Location {
